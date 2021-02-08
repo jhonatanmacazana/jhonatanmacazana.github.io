@@ -1,0 +1,21 @@
+.workContainer {
+  margin-bottom: 100px;
+}
+
+.title {
+  margin-bottom: 30px;
+  margin-top: 0;
+  color: var(--black);
+}
+
+@media screen and (max-width: 880px) {
+  .workContainer {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .workContainer {
+    padding: 0 20px;
+  }
+}
