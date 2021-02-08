@@ -34,5 +34,3 @@ jobs:
           branch: gh-pages
           folder: out
           clean: true
-          clean-exclude: |
-            CNAME

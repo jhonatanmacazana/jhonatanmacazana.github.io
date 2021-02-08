@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "export": "next build && next export",
+    "postexport": "echo 'jmacazana.tk' > ./out/CNAME",
     "build": "next build",
     "start": "next start",
     "watch": "next dev"
