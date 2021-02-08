@@ -9,9 +9,9 @@ interface SEOProps {
 const SEO: React.FC<SEOProps> = ({
   title,
   description,
-  image = "/images/wide-logo.png",
+  // image = "/images/wide-logo.png",
 }) => {
-  const siteURL = "https://jmacazana.tk";
+  // const siteURL = "https://jmacazana.tk";
 
   return (
     <Head>
@@ -54,8 +54,8 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="msapplication-TileColor" content="#2b5797"></meta>
       <meta name="theme-color" content="#ffffff"></meta>
 
-      <meta property="og:image" content={`${siteURL}${image}`}></meta>
-      <meta name="twitter:image" content={`${siteURL}${image}`}></meta>
+      {/* <meta property="og:image" content={`${siteURL}${image}`}></meta>
+      <meta name="twitter:image" content={`${siteURL}${image}`}></meta> */}
       <link href="/common.css" rel="stylesheet" />
 
       <link rel="icon" type="image/png" href="/favicon.ico" />
