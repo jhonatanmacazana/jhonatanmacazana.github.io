@@ -2,9 +2,10 @@ const sitemap = require("nextjs-sitemap-generator");
 const { join } = require("path");
 const { writeFileSync } = require("fs");
 
+const baseUrl = "https://jmacazana.tk";
 const generateSitemap = () => {
   sitemap({
-    baseUrl: "https://jmacazana.tk",
+    baseUrl,
     pagesDirectory: join(__dirname, "out"),
     targetDirectory: "out/",
     ignoredExtensions: ["js", "map"],
@@ -21,6 +22,18 @@ const generateNoJekyll = () => {
   writeFileSync("./out/.nojekyll", "");
 };
 
+const generateRobots = () => {
+  writeFileSync(
+    "./out/robots.txt",
+    `Sitemap: ${baseUrl}/sitemap.xml
+
+User-agent: *
+Disallow: /_next/
+`
+  );
+};
+
 generateSitemap();
 generateCNAME();
 generateNoJekyll();
+generateRobots();
