@@ -1,4 +1,4 @@
-import Footer from "#root/components/Footer";
+import Footer from "#root/components/Shared/Footer";
 import { WorkStruct } from "#root/content/Works.Context";
 
 import WorkCard from "./WorkCard";
