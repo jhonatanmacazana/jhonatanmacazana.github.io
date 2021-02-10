@@ -1,9 +1,9 @@
 import { GetStaticProps } from "next";
 
-import Header from "#root/components/Header";
-import Home from "#root/components/Home";
-import Intro from "#root/components/Intro";
-import Layout from "#root/components/Layout";
+import Home from "#root/components/PageIndex/Home";
+import Intro from "#root/components/PageIndex/Intro";
+import Header from "#root/components/Shared/Header";
+import Layout from "#root/components/Shared/Layout";
 import getWorks from "#root/content/getWorks";
 import { WorkStruct } from "#root/content/Works.Context";
 

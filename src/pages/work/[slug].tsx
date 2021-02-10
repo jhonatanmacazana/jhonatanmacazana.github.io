@@ -5,12 +5,12 @@ import { useInView } from "react-intersection-observer";
 import ReactMarkdown from "react-markdown";
 import removeMd from "remove-markdown";
 
-import Footer from "#root/components/Footer";
-import Header from "#root/components/Header";
-import Layout from "#root/components/Layout";
-import Line from "#root/components/Line";
+import Footer from "#root/components/Shared/Footer";
+import Header from "#root/components/Shared/Header";
+import Layout from "#root/components/Shared/Layout";
 import SEO from "#root/components/Shared/SEO";
-import Sidebar from "#root/components/WorkSidebar";
+import Line from "#root/components/PageWorkSlug/Line";
+import Sidebar from "#root/components/PageWorkSlug/WorkSidebar";
 import getWorks, { getWorkBySlug } from "#root/content/getWorks";
 import { DocumentStruct, WorkStruct } from "#root/content/Works.Context";
 
