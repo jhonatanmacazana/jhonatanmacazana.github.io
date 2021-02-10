@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { ReactNode, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import ReactMarkdown from "react-markdown";
@@ -61,15 +60,11 @@ interface PostProps {
 }
 
 const Post: React.FC<PostProps> = ({ work }) => {
-  const {
-    query: { wid },
-  } = useRouter();
-
   useEffect(() => {
     setTimeout(() => {
       document.body.classList.add(styles.withAnim);
     }, 0);
-  }, [wid]);
+  }, []);
 
   // const currentIndex = works.findIndex(w => w.slug === wid);
 
