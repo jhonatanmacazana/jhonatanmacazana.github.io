@@ -7,7 +7,6 @@ import removeMd from "remove-markdown";
 
 import Footer from "#root/components/Shared/Footer";
 import Header from "#root/components/Shared/Header";
-import Layout from "#root/components/Shared/Layout";
 import SEO from "#root/components/Shared/SEO";
 import Line from "#root/components/PageWorkSlug/Line";
 import Sidebar from "#root/components/PageWorkSlug/WorkSidebar";
@@ -22,36 +21,34 @@ const WorkInfo: React.FC<DocumentStruct> = ({
   content,
 }) => {
   return (
-    <Layout>
-      <div className={styles.workWrapper}>
-        <div className={styles.workInfo}>
-          <div className={styles.topContainer}>
-            <Line />
-            <div className={styles.topInfo}>
-              <hgroup>
-                <h1 className={styles.workTitle}>{title}</h1>
-              </hgroup>
-              <div className={styles.container}>
-                <div className={styles.inner}>
-                  {content ? <ReactMarkdown source={content} /> : "loading"}
-                  {website && (
-                    <a
-                      className={styles.websiteLink}
-                      href={website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Visit website
-                    </a>
-                  )}
-                </div>
-                <Sidebar {...data} />
+    <div className={styles.workWrapper}>
+      <div className={styles.workInfo}>
+        <div className={styles.topContainer}>
+          <Line />
+          <div className={styles.topInfo}>
+            <hgroup>
+              <h1 className={styles.workTitle}>{title}</h1>
+            </hgroup>
+            <div className={styles.container}>
+              <div className={styles.inner}>
+                {content ? <ReactMarkdown source={content} /> : "loading"}
+                {website && (
+                  <a
+                    className={styles.websiteLink}
+                    href={website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Visit website
+                  </a>
+                )}
               </div>
+              <Sidebar {...data} />
             </div>
           </div>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 };
 
