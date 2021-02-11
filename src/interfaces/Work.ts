@@ -1,4 +1,3 @@
-import { createContext } from "react";
 interface DataStruct {
   title: string;
   year: string;
@@ -25,6 +24,4 @@ export interface WorkStruct {
   slug: string;
 }
 
-const WorksContext = createContext<WorkStruct[]>([]);
-
-export default WorksContext;
+export default WorkStruct;

@@ -10,8 +10,8 @@ import Header from "#root/components/Shared/Header";
 import SEO from "#root/components/Shared/SEO";
 import Line from "#root/components/PageWorkSlug/Line";
 import Sidebar from "#root/components/PageWorkSlug/WorkSidebar";
-import getWorks, { getWorkBySlug } from "#root/content/getWorks";
-import { DocumentStruct, WorkStruct } from "#root/content/Works.Context";
+import getWorks, { getWorkBySlug } from "#root/helpers/getWorks";
+import { DocumentStruct, WorkStruct } from "#root/interfaces/Work";
 
 import styles from "./work.module.css";
 

@@ -1,5 +1,5 @@
 import matter from "gray-matter";
-import { WorkStruct } from "./Works.Context";
+import { WorkStruct } from "#root/interfaces/Work";
 
 const getWorks = (): WorkStruct[] => {
   const getPages = (indexCtx: any, imagesCtx: any) => {
@@ -26,8 +26,8 @@ const getWorks = (): WorkStruct[] => {
   };
 
   const pages = getPages(
-    require.context("./works", true, /index.md$/),
-    require.context("./works", true, /images.md$/)
+    require.context("#content/works", true, /index.md$/),
+    require.context("#content/works", true, /images.md$/)
   ).sort(
     (a, b) =>
       new Date(b.document.data.date).getTime() -

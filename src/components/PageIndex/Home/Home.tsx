@@ -1,5 +1,5 @@
 import SEO from "#root/components/Shared/SEO";
-import { WorkStruct } from "#root/content/Works.Context";
+import { WorkStruct } from "#root/interfaces/Work";
 
 import styles from "./Home.module.css";
 import WorkList from "./WorkList";

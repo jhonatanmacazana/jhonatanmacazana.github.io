@@ -3,8 +3,8 @@ import { GetStaticProps } from "next";
 import Home from "#root/components/PageIndex/Home";
 import Intro from "#root/components/PageIndex/Intro";
 import Header from "#root/components/Shared/Header";
-import getWorks from "#root/content/getWorks";
-import { WorkStruct } from "#root/content/Works.Context";
+import getWorks from "#root/helpers/getWorks";
+import { WorkStruct } from "#root/interfaces/Work";
 
 interface IndexProps {
   works: WorkStruct[];

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import Icon from "#root/components/Shared/Icon";
-import { WorkStruct } from "#root/content/Works.Context";
+import { WorkStruct } from "#root/interfaces/Work";
 
 import styles from "./WorkCard.module.css";
 

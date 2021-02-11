@@ -1,5 +1,5 @@
 import Footer from "#root/components/Shared/Footer";
-import { WorkStruct } from "#root/content/Works.Context";
+import { WorkStruct } from "#root/interfaces/Work";
 
 import WorkCard from "./WorkCard";
 import styles from "./WorkList.module.css";
