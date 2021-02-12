@@ -11,7 +11,7 @@ const SEO: React.FC<SEOProps> = ({
   description,
   // image = "/images/wide-logo.png",
 }) => {
-  // const siteURL = "https://jmacazana.tk";
+  // const siteURL = "https://jmacazana.com";
 
   return (
     <Head>

@@ -2,7 +2,7 @@ const sitemap = require("nextjs-sitemap-generator");
 const { join } = require("path");
 const { writeFileSync } = require("fs");
 
-const baseDomain = "jmacazana.tk";
+const baseDomain = "jmacazana.com";
 const baseUrl = `https://${baseDomain}`;
 const generateSitemap = () => {
   sitemap({
