@@ -10,30 +10,23 @@ See it at: https://jmacazana.tk
 
 ### General
 
-[x] NextJS for ReactJS + static generation 
-
-[x] Github Workflow for publishing to Github Pages
-
-[x] Custom Domain + HTTPS
-
-[ ] Google Analytics + SEO
+* [x] NextJS for ReactJS + static generation 
+* [x] Github Workflow for publishing to Github Pages
+* [x] Custom Domain + HTTPS
+* [ ] Google Analytics + SEO
 
 ### Content
 
-[x] CV.pdf
-
-[x] Markdown for the blogs
-
-[ ] Markdown or JSON for the main page
-
-[ ] Migrate to headless CMS ? 
+* [x] CV.pdf
+* [x] Markdown for the blogs
+* [ ] Markdown or JSON for the main page
+* [ ] Migrate to headless CMS ? 
 
 ### Styling
 
-[x] migrate from modular css to `styled-components`
-
-[ ] dark theme support
+* [x] Migrate from modular css to `styled-components`
+* [ ] Dark theme support
 
 ### Language
 
-[ ] add languages with `i18n`
+* [ ] Add languages with `i18n`
