@@ -1,65 +1,20 @@
 import Head from "next/head";
-import Link from "next/link";
-import { ReactNode, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import ReactMarkdown from "react-markdown";
+import { useEffect } from "react";
 import removeMd from "remove-markdown";
 
+import { WorkArticle } from "#root/components/PageWorkSlug/Slug.styles";
+import WorkImages from "#root/components/PageWorkSlug/WorkImages";
+import WorkInfo from "#root/components/PageWorkSlug/WorkInfo";
 import Footer from "#root/components/Shared/Footer";
 import Header from "#root/components/Shared/Header";
 import SEO from "#root/components/Shared/SEO";
-import Line from "#root/components/PageWorkSlug/Line";
-import Sidebar from "#root/components/PageWorkSlug/WorkSidebar";
 import getWorks, { getWorkBySlug } from "#root/helpers/getWorks";
-import { DocumentStruct, WorkStruct } from "#root/interfaces/Work";
+import { WorkProps } from "#root/interfaces/StaticProps";
 
-import styles from "./work.module.css";
-
-const WorkInfo: React.FC<DocumentStruct> = ({
-  data,
-  data: { title, website },
-  content,
-}) => {
-  return (
-    <div className={styles.workWrapper}>
-      <div className={styles.workInfo}>
-        <div className={styles.topContainer}>
-          <Line />
-          <div className={styles.topInfo}>
-            <hgroup>
-              <h1 className={styles.workTitle}>{title}</h1>
-            </hgroup>
-            <div className={styles.container}>
-              <div className={styles.inner}>
-                {content ? <ReactMarkdown source={content} /> : "loading"}
-                {website && (
-                  <a
-                    className={styles.websiteLink}
-                    href={website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Visit website
-                  </a>
-                )}
-              </div>
-              <Sidebar {...data} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-interface PostProps {
-  work: WorkStruct;
-}
-
-const Post: React.FC<PostProps> = ({ work }) => {
+const Post: React.FC<WorkProps> = ({ work }) => {
   useEffect(() => {
     setTimeout(() => {
-      document.body.classList.add(styles.withAnim);
+      document.body.classList.add("withAnim");
     }, 0);
   }, []);
 
@@ -82,17 +37,10 @@ const Post: React.FC<PostProps> = ({ work }) => {
         image={data.featuredImg}
       />
       <Header />
-      <article className={styles.work}>
+      <WorkArticle>
         <WorkInfo data={data} content={content} />
-        <div className={styles.workImages}>
-          <div className={styles.images}>
-            <ReactMarkdown
-              source={images.content}
-              renderers={{ image: Img, paragraph: P }}
-            />
-          </div>
-        </div>
-      </article>
+        <WorkImages content={images.content} />
+      </WorkArticle>
       {/* <NextWork nextSlug={nextWork.slug}>
         <WorkInfo data={nextWork.document.data} content={nextWork.document.content} />
       </NextWork> */}
@@ -101,73 +49,13 @@ const Post: React.FC<PostProps> = ({ work }) => {
   );
 };
 
-interface PProps extends React.FC {
-  children: ReactNode | any;
-}
-const P: React.FC<PProps> = ({ children }) => {
-  if (
-    children &&
-    children[0] &&
-    children.length === 1 &&
-    children[0].props &&
-    children[0].props.src
-  ) {
-    // rendering media without p wrapper
-
-    return children;
-  }
-
-  return <p>{children}</p>;
-};
-
-interface ImgProps {
-  alt: string;
-  src: string;
-}
-const Img: React.FC<ImgProps> = ({ alt, src }) => {
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
-
-  if (src.match(/.mp4$/)) {
-    return (
-      <div
-        className={[
-          styles.imgContainer,
-          inView ? styles.imgContainerAnim : "",
-        ].join(" ")}
-        ref={ref}
-      >
-        <video muted autoPlay src={inView ? src : ""}></video>
-      </div>
-    );
-  }
-
-  return (
-    <Link href={src}>
-      <a target="_blank" rel="noopener noreferrer">
-        <div
-          className={[
-            styles.imgContainer,
-            inView ? styles.imgContainerAnim : "",
-          ].join(" ")}
-          ref={ref}
-        >
-          <img srcSet={`${src} 2x`} alt={alt} />
-        </div>
-      </a>
-    </Link>
-  );
-};
-
 export default Post;
 
-type Params = {
+interface Params {
   params: {
     slug: string;
   };
-};
+}
 
 export const getStaticProps = async ({ params }: Params) => {
   const work = getWorkBySlug(params.slug);

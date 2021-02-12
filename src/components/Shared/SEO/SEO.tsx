@@ -56,7 +56,6 @@ const SEO: React.FC<SEOProps> = ({
 
       {/* <meta property="og:image" content={`${siteURL}${image}`}></meta>
       <meta name="twitter:image" content={`${siteURL}${image}`}></meta> */}
-      <link href="/common.css" rel="stylesheet" />
 
       <link rel="icon" type="image/png" href="/favicon.ico" />
     </Head>

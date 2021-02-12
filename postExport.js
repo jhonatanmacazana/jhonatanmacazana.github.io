@@ -2,7 +2,8 @@ const sitemap = require("nextjs-sitemap-generator");
 const { join } = require("path");
 const { writeFileSync } = require("fs");
 
-const baseUrl = "https://jmacazana.tk";
+const baseDomain = "jmacazana.tk";
+const baseUrl = `https://${baseDomain}`;
 const generateSitemap = () => {
   sitemap({
     baseUrl,
@@ -15,7 +16,7 @@ const generateSitemap = () => {
 };
 
 const generateCNAME = () => {
-  writeFileSync("./out/CNAME", "jmacazana.tk");
+  writeFileSync("./out/CNAME", baseDomain);
 };
 
 const generateNoJekyll = () => {

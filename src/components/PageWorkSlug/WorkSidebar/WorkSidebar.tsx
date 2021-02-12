@@ -1,6 +1,13 @@
 import Icon from "#root/components/Shared/Icon";
 
-import styles from "./Sidebar.module.css";
+import {
+  ClientItem,
+  SectionWrapper,
+  ServiceItem,
+  SidebarWrapper,
+  TechSectionWrapper,
+  Title,
+} from "./WorkSidebar.styles";
 
 interface SBProps {
   client?: string;
@@ -10,42 +17,32 @@ interface SBProps {
   website?: string;
 }
 
-interface SectionProps {
-  className?: string;
-}
-
-const Section: React.FC<SectionProps> = ({ children, className }) => (
-  <div className={[styles.section, className].join(" ")}>{children}</div>
-);
-
 const WorkSidebar: React.FC<SBProps> = ({ client, services, tech }) => (
-  <div className={styles.sidebar}>
+  <SidebarWrapper>
     {client && (
-      <Section>
-        <p className={styles.title}>Client</p>
-        <p className={styles.item}>{client}</p>
-      </Section>
+      <SectionWrapper>
+        <Title>Client</Title>
+        <ClientItem>{client}</ClientItem>
+      </SectionWrapper>
     )}
     {services && (
-      <Section>
-        <p className={styles.title}>Services</p>
+      <SectionWrapper>
+        <Title>Services</Title>
         <ul>
           {services.split(", ").map(s => (
-            <li className={styles.item} key={s}>
-              {s}
-            </li>
+            <ServiceItem key={s}>{s}</ServiceItem>
           ))}
         </ul>
-      </Section>
+      </SectionWrapper>
     )}
     {tech && (
-      <Section className={styles.techs}>
+      <TechSectionWrapper>
         {tech.split(", ").map(t => (
           <Icon key={t}>{t}</Icon>
         ))}
-      </Section>
+      </TechSectionWrapper>
     )}
-  </div>
+  </SidebarWrapper>
 );
 
 export default WorkSidebar;
