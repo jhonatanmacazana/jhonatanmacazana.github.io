@@ -3,7 +3,7 @@ import Link from "next/link";
 import githubLogo from "#root/assets/socials/github.svg";
 import linkedinLogo from "#root/assets/socials/linkedin.svg";
 
-import styles from "./Footer.module.css";
+import { Container, Nav } from "./Footer.styles";
 
 interface FooterProps {
   noBorder?: boolean;
@@ -24,7 +24,7 @@ const Icon: React.FC<IconProps> = ({ alt, href, image }) => {
 
 const Footer: React.FC<FooterProps> = ({ noBorder }) => (
   <footer>
-    <div className={noBorder ? styles.containerNoBorder : styles.container}>
+    <Container noBorder={noBorder}>
       <Link href="/">
         <img
           src="/android-chrome-512x512.png"
@@ -32,7 +32,7 @@ const Footer: React.FC<FooterProps> = ({ noBorder }) => (
           alt="jmacazana logo"
         />
       </Link>
-      <nav className={styles.nav}>
+      <Nav>
         <ul>
           <li>
             <Icon
@@ -47,8 +47,8 @@ const Footer: React.FC<FooterProps> = ({ noBorder }) => (
             />
           </li>
         </ul>
-      </nav>
-    </div>
+      </Nav>
+    </Container>
   </footer>
 );
 

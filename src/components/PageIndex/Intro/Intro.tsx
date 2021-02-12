@@ -1,24 +1,32 @@
-import styles from "./Intro.module.css";
+import {
+  Greeting,
+  HelloButton,
+  IntroWrapper,
+  LineBreak,
+  LongOne,
+  MyTitle,
+  ShortOne,
+} from "./Intro.styles";
 
 const Intro: React.FC = () => (
   <>
-    <div className={styles.intro}>
-      <div className={styles.shortOne}>
-        <p className={styles.greeting}>Hi, I’m Jhonatan,</p>
-        <p className={styles.myTitle}>
+    <IntroWrapper>
+      <ShortOne>
+        <Greeting>Hi, I’m Jhonatan,</Greeting>
+        <MyTitle>
           full stack developer <br />
           electrical engineer <br />
           and sysadmin
-        </p>
+        </MyTitle>
         <a
           target="_blank"
           rel="noopener noreferrer"
           href="mailto:jhonatanmacazana1@gmail.com"
         >
-          <button className={styles.helloButton}>Say hello</button>
+          <HelloButton>Say hello</HelloButton>
         </a>
-      </div>
-      <div className={styles.longOne}>
+      </ShortOne>
+      <LongOne>
         <p>
           I'm a Peruvian based Jr. full stack developer, working with IoT
           devices for over 2 years. I'm experienced in <strong>HTML5</strong>,{" "}
@@ -36,9 +44,9 @@ const Intro: React.FC = () => (
           temperature acquisition inside buildings.
         </p>
         <p>Worked as Software architect of three Peruvian startups.</p>
-      </div>
-    </div>
-    <div className={styles.br}></div>
+      </LongOne>
+    </IntroWrapper>
+    <LineBreak />
   </>
 );
 
