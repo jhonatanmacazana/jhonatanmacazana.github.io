@@ -1,4 +1,4 @@
-Sitemap: https://jmacazana.tk/sitemap.xml
+Sitemap: https://jmacazana.com/sitemap.xml
 
 User-agent: *
 Disallow: /_next/
