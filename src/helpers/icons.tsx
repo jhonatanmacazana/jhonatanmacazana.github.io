@@ -76,6 +76,7 @@ icons["typescriptWhite"] = require("#root/assets/brands/typescriptWhite.svg");
 // https://cdn.svgporn.com/logos/php.svg
 // https://cdn.svgporn.com/logos/material-ui.svg
 // https://cdn.svgporn.com/logos/tailwindcss.svg
+// https://cdn.svgporn.com/logos/gopher.svg
 
 /* ----------------------------------- Editors --------------------------------------*/
 icons["eclipse"] = require("#root/assets/brands/eclipse.svg");
