@@ -87,7 +87,7 @@ export const TechSectionWrapper = styled(SectionWrapper)`
   }
 
   img {
-    margin-right: 3px;
+    margin-right: 0.7rem;
   }
 `;
 
