@@ -13,7 +13,7 @@ See it at: https://jmacazana.com
 * [x] NextJS for ReactJS + static generation 
 * [x] Github Workflow for publishing to Github Pages
 * [x] Custom Domain + HTTPS
-* [ ] Google Analytics + SEO
+* [x] Google Analytics + SEO
 
 ### Content
 
