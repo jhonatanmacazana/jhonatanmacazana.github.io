@@ -2,8 +2,8 @@
 title: 'Template generator'
 date: 2021-02-01
 client: Public
-services: 'Command Line Interface development, Starter code'
-tech: 'Typescript, Rust, Github, VSCode'
+services: 'CLI development, Starter code, GHActions'
+tech: 'Rust, Typescript, Github, VSCode'
 website: 'https://github.com/jhonatanmacazana/vsr-new'
 featuredImg: '/assets/works/vsr-new/preview.jpg'
 ---

@@ -3,7 +3,7 @@ title: 'El Aire Que Respiras'
 date: 2019-03-01
 client: UTEC
 services: 'Firmware development, Microcontrollers, IoT'
-tech: 'C, HTML5, CSS'
+tech: 'C, Microchip, AVR'
 website: 'https://elairequerespiras.pe'
 featuredImg: '/assets/works/eaqr/preview.jpg'
 ---
