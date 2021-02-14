@@ -16,7 +16,7 @@ const Intro: React.FC = () => (
         <MyTitle>
           full stack developer <br />
           electrical engineer <br />
-          and sysadmin
+          and SRE
         </MyTitle>
         <a
           target="_blank"
@@ -43,7 +43,36 @@ const Intro: React.FC = () => (
           acquisition with IoT. Published one paper indexed in IEEE related to
           temperature acquisition inside buildings.
         </p>
-        <p>Worked as Software architect of three Peruvian startups.</p>
+        <p>Worked as Software architect of three Peruvian startups:</p>
+        <ul>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://nextmedicall.com"
+            >
+              Nextmedicall
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://linkop.pe"
+            >
+              Linkop
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://certificatek.com"
+            >
+              Certificatek
+            </a>
+          </li>
+        </ul>
       </LongOne>
     </IntroWrapper>
     <LineBreak />

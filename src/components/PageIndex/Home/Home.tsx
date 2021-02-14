@@ -8,7 +8,7 @@ const Home: React.FC<WorksProps> = ({ works }) => (
   <HomeWrapper>
     <SEO
       title="Jhonatan Macazana | Portfolio"
-      description="Portfolio of Jhonatan Macazana, web developer, electrical student, and sysadmin engineer"
+      description="Portfolio of Jhonatan Macazana, web developer, electrical engineer, and junior SRE. Check out my latest works."
     />
     <WorkList works={works} />
   </HomeWrapper>
