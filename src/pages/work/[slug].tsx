@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useEffect } from "react";
 import removeMd from "remove-markdown";
 
@@ -28,19 +27,19 @@ const Post: React.FC<WorkProps> = ({ work }) => {
 
   return (
     <>
-      <Head>
-        <title>{data.title}</title>
-      </Head>
       <SEO
         title={data.title}
         description={removeMd(content.trim()).substring(0, 160)}
         image={data.featuredImg}
       />
+
       <Header />
+
       <WorkArticle>
         <WorkInfo data={data} content={content} />
         <WorkImages content={images.content} />
       </WorkArticle>
+
       {/* <NextWork nextSlug={nextWork.slug}>
         <WorkInfo data={nextWork.document.data} content={nextWork.document.content} />
       </NextWork> */}
