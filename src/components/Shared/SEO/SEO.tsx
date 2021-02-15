@@ -1,64 +1,56 @@
-import Head from "next/head";
+import { NextSeo, NextSeoProps } from "next-seo";
 
-interface SEOProps {
+import Metadata from "./Metadata";
+
+interface SEOProps extends NextSeoProps {
   title: string;
   description: string;
   image?: string;
+  locale?: string;
 }
 
 const SEO: React.FC<SEOProps> = ({
   title,
   description,
-  // image = "/images/wide-logo.png",
+  locale = "en",
+  image = "/android-chrome-512x512.png",
 }) => {
-  // const siteURL = "https://jmacazana.com";
+  const siteURL = "https://jmacazana.com";
 
   return (
-    <Head>
-      <title>{title}</title>
-      <meta name="twitter:creator" content="@jmacazana"></meta>
-      <meta name="twitter:card" content="summary_large_image"></meta>
-      <meta property="og:type" content="website"></meta>
+    <>
+      <NextSeo
+        title={title}
+        description={description}
+        openGraph={{
+          description: description,
+          locale: locale,
+          title: title,
+          profile: {
+            firstName: "Jhonatan",
+            lastName: "Macazana",
+            gender: "Male",
+            username: "jmacazana",
+          },
+          site_name: "Jhonatan Macazana | Portfolio",
+          type: "website",
+          url: siteURL,
+          images: [
+            {
+              url: `${siteURL}${image}`,
+              alt: "Jhonatan Macazana Page",
+            },
+          ],
+        }}
+        twitter={{
+          cardType: "summary_large_image",
+          handle: "@jmacazana2",
+          site: "@jmacazana2",
+        }}
+      />
 
-      <meta property="og:title" content={title}></meta>
-      <meta name="twitter:title" content={title}></meta>
-
-      <meta name="description" content={description}></meta>
-      <meta name="twitter:description" content={description}></meta>
-
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/apple-touch-icon.png"
-      ></link>
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/favicon-32x32.png"
-      ></link>
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/favicon-16x16.png"
-      ></link>
-
-      <link rel="manifest" href="/site.webmanifest"></link>
-      <link
-        rel="mask-icon"
-        href="/safari-pinned-tab.svg"
-        color="#5bbad5"
-      ></link>
-
-      <meta name="msapplication-TileColor" content="#2b5797"></meta>
-      <meta name="theme-color" content="#ffffff"></meta>
-
-      {/* <meta property="og:image" content={`${siteURL}${image}`}></meta>
-      <meta name="twitter:image" content={`${siteURL}${image}`}></meta> */}
-
-      <link rel="icon" type="image/png" href="/favicon.ico" />
-    </Head>
+      <Metadata />
+    </>
   );
 };
 

@@ -28,7 +28,8 @@ icons["microchip"] = require("#root/assets/brands/microchip.svg");
 icons["microchipWhite"] = require("#root/assets/brands/microchipWhite.svg");
 icons["stm32"] = require("#root/assets/brands/stm32.svg");
 icons["stm32White"] = require("#root/assets/brands/stm32White.svg");
-// https://cdn.svgporn.com/logos/raspberry-pi.svg
+icons["raspi"] = require("#root/assets/brands/raspi.svg");
+icons["raspiWhite"] = require("#root/assets/brands/raspiWhite.svg");
 // https://cdn.svgporn.com/logos/platformio.svg
 
 /* ----------------------------------- Devops --------------------------------------*/
