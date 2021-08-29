@@ -14,7 +14,7 @@ interface IconProps {
   href: string;
   image: any;
 }
-const Icon: React.FC<IconProps> = ({ alt, href, image }) => {
+const Icon = ({ alt, href, image }: IconProps) => {
   return (
     <a target="_blank" rel="noopener noreferrer" href={href}>
       <img src={image} width="30px" alt={alt}></img>
@@ -22,15 +22,11 @@ const Icon: React.FC<IconProps> = ({ alt, href, image }) => {
   );
 };
 
-const Footer: React.FC<FooterProps> = ({ noBorder }) => (
+const Footer = ({ noBorder }: FooterProps) => (
   <footer>
     <Container noBorder={noBorder}>
       <Link href="/">
-        <img
-          src="/android-chrome-512x512.png"
-          width="70px"
-          alt="jmacazana logo"
-        />
+        <img src="/android-chrome-512x512.png" width="70px" alt="jmacazana logo" />
       </Link>
       <Nav>
         <ul>

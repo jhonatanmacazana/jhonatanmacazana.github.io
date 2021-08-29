@@ -42,14 +42,10 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  const router = useRouter();
+  const { value } = useDarkMode(false, { storageKey: undefined, onChange: undefined });
   const [mounted, setMounted] = useState(false);
 
-  const router = useRouter();
-
-  const { value } = useDarkMode(false, {
-    storageKey: undefined,
-    onChange: undefined,
-  });
   const theme = value ? darkTheme : lightTheme;
 
   useEffect(() => {

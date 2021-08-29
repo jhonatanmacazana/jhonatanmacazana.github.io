@@ -3,12 +3,12 @@ import { useInView } from "react-intersection-observer";
 
 import { ImgContainer } from "./ImageRenderer.styles";
 
-interface ImgProps {
+interface ImageRendererProps {
   alt: string;
   src: string;
 }
 
-const ImageRenderer: React.FC<ImgProps> = ({ alt, src }) => {
+const ImageRenderer = ({ alt, src }: ImageRendererProps) => {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,

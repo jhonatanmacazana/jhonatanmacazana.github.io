@@ -93,7 +93,16 @@ export const TechSectionWrapper = styled(SectionWrapper)`
 
 export const Title = styled.p`
   color: #9699a3;
-  font-size: var(--sidebarSize);
+  /* font-size: var(--sidebarSize); */
+  font-size: 15px;
   margin-bottom: 5px;
   opacity: 0.9;
+
+  @media screen and (max-width: 1100px) {
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 13px;
+  }
 `;

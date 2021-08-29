@@ -1,3 +1,5 @@
+import { GetStaticPaths, GetStaticProps } from "next";
+import { ParsedUrlQuery } from "querystring";
 import { useEffect } from "react";
 import removeMd from "remove-markdown";
 
@@ -8,15 +10,17 @@ import Footer from "#root/components/Shared/Footer";
 import Header from "#root/components/Shared/Header";
 import SEO from "#root/components/Shared/SEO";
 import getWorks, { getWorkBySlug } from "#root/helpers/getWorks";
-import { WorkProps } from "#root/interfaces/StaticProps";
+import WorkStruct from "#root/interfaces/Work";
 
-const Post: React.FC<WorkProps> = ({ work }) => {
-  useEffect(() => {
-    setTimeout(() => {
-      document.body.classList.add("withAnim");
-    }, 0);
-  }, []);
+interface WorkSlugProps {
+  work: WorkStruct;
+}
 
+interface WorkSlugParams extends ParsedUrlQuery {
+  slug: string;
+}
+
+const Post = ({ work }: WorkSlugProps) => {
   // const currentIndex = works.findIndex(w => w.slug === wid);
 
   const {
@@ -24,6 +28,12 @@ const Post: React.FC<WorkProps> = ({ work }) => {
     images,
   } = work;
   // const nextWork = works[currentIndex + 1] ? works[currentIndex + 1] : works[0];
+
+  useEffect(() => {
+    setTimeout(() => {
+      document.body.classList.add("withAnim");
+    }, 0);
+  }, []);
 
   return (
     <>
@@ -50,27 +60,17 @@ const Post: React.FC<WorkProps> = ({ work }) => {
 
 export default Post;
 
-interface Params {
-  params: {
-    slug: string;
-  };
-}
-
-export const getStaticProps = async ({ params }: Params) => {
-  const work = getWorkBySlug(params.slug);
+export const getStaticProps: GetStaticProps<WorkSlugProps, WorkSlugParams> = async ({ params }) => {
+  const work = getWorkBySlug(params!.slug);
 
   return { props: { work } };
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const works = getWorks();
 
   return {
-    paths: works.map(work => {
-      return {
-        params: { slug: work.slug },
-      };
-    }),
     fallback: false,
+    paths: works.map(work => ({ params: { slug: work.slug } })),
   };
 };

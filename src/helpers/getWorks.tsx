@@ -1,4 +1,5 @@
 import matter from "gray-matter";
+
 import { WorkStruct } from "#root/interfaces/Work";
 
 const getWorks = (): WorkStruct[] => {
@@ -29,9 +30,7 @@ const getWorks = (): WorkStruct[] => {
     require.context("#content/works", true, /index.md$/),
     require.context("#content/works", true, /images.md$/)
   ).sort(
-    (a, b) =>
-      new Date(b.document.data.date).getTime() -
-      new Date(a.document.data.date).getTime()
+    (a, b) => new Date(b.document.data.date).getTime() - new Date(a.document.data.date).getTime()
   );
 
   return pages;

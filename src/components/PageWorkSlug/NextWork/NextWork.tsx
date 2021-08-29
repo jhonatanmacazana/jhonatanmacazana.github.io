@@ -1,14 +1,15 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { ReactNode, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
 import styles from "./NextWork.module.css";
 
-interface NWProps extends React.FC {
+interface NextWorkProps {
+  children: ReactNode;
   nextSlug: string;
 }
 
-const NextWork: React.FC<NWProps> = ({ children, nextSlug }) => {
+const NextWork = ({ children, nextSlug }: NextWorkProps) => {
   const router = useRouter();
 
   const [ref, inView, entry] = useInView({ threshold: [0, 1] });
@@ -28,9 +29,7 @@ const NextWork: React.FC<NWProps> = ({ children, nextSlug }) => {
   return (
     <div className={styles.nextProjectContainer}>
       <div className={styles.nextProject}>
-        <div className={styles.nextProjectInner}>
-          Keep scrolling to see the next project
-        </div>
+        <div className={styles.nextProjectInner}>Keep scrolling to see the next project</div>
       </div>
       <div
         ref={ref}

@@ -1,6 +1,6 @@
+const { writeFileSync } = require("fs");
 const sitemap = require("nextjs-sitemap-generator");
 const { join } = require("path");
-const { writeFileSync } = require("fs");
 
 const baseDomain = "jmacazana.com";
 const baseUrl = `https://${baseDomain}`;

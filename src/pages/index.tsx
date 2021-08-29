@@ -12,7 +12,7 @@ interface IndexProps {
   works: WorkStruct[];
 }
 
-const Index: React.FC<IndexProps> = ({ works }) => (
+const Index = ({ works }: IndexProps) => (
   <main>
     <SEO
       title="Jhonatan Macazana | Portfolio"
@@ -27,7 +27,7 @@ const Index: React.FC<IndexProps> = ({ works }) => (
 
 export default Index;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<IndexProps> = async () => {
   const works = getWorks();
 
   return { props: { works } };

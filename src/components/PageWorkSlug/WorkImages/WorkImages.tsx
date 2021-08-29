@@ -8,7 +8,7 @@ import { ImagesWrapper, WorkImagesWrapper } from "./WorkImages.styles";
 interface WorkImagesProps {
   content: string;
 }
-const WorkImages: React.FC<WorkImagesProps> = ({ content }) => {
+const WorkImages = ({ content }: WorkImagesProps) => {
   return (
     <WorkImagesWrapper>
       <ImagesWrapper>

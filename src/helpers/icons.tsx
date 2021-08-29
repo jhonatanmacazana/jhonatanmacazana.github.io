@@ -11,9 +11,7 @@ icons["photoshopWhite"] = require("#root/assets/brands/photoshopWhite.svg");
 icons["aws"] = require("#root/assets/brands/aws.svg");
 icons["awsWhite"] = require("#root/assets/brands/awsWhite.svg");
 icons["digitalOcean"] = require("#root/assets/brands/digitalOcean.svg");
-icons[
-  "digitalOceanWhite"
-] = require("#root/assets/brands/digitalOceanWhite.svg");
+icons["digitalOceanWhite"] = require("#root/assets/brands/digitalOceanWhite.svg");
 
 /* ----------------------------------- Hardware --------------------------------------*/
 icons["arduino"] = require("#root/assets/brands/arduino.svg");

@@ -1,15 +1,8 @@
 import Link from "next/link";
 
-import {
-  ContactLinkField,
-  Field,
-  HeaderInner,
-  HeaderWrapper,
-  Logo,
-  Nav,
-} from "./Header.styles";
+import { ContactLinkField, Field, HeaderInner, HeaderWrapper, Logo, Nav } from "./Header.styles";
 
-const Header: React.FC = () => (
+const Header = () => (
   <HeaderWrapper>
     <HeaderInner>
       <Link href="/">
@@ -18,11 +11,7 @@ const Header: React.FC = () => (
         </a>
       </Link>
       <Nav>
-        <Field
-          href="/assets/CV_Eng_Macazana.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Field href="/assets/CV_Eng_Macazana.pdf" target="_blank" rel="noopener noreferrer">
           CV
         </Field>
         <ContactLinkField

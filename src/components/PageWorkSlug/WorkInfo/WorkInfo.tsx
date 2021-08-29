@@ -15,11 +15,7 @@ import {
   WorkWrapper,
 } from "./WorkInfo.styles";
 
-const WorkInfo: React.FC<DocumentStruct> = ({
-  data,
-  data: { title, website },
-  content,
-}) => {
+const WorkInfo = ({ data, data: { title, website }, content }: DocumentStruct) => {
   return (
     <WorkWrapper>
       <WorkInfoWrapper>
@@ -33,11 +29,7 @@ const WorkInfo: React.FC<DocumentStruct> = ({
               <Inner>
                 {content ? <ReactMarkdown source={content} /> : "loading"}
                 {website && (
-                  <WebsiteLink
-                    href={website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <WebsiteLink href={website} target="_blank" rel="noopener noreferrer">
                     Visit website
                   </WebsiteLink>
                 )}

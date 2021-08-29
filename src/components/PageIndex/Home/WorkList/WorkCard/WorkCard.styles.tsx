@@ -9,8 +9,7 @@ export const Card = styled.a`
   box-shadow: 0 4px 17px rgba(0, 0, 0, 0.18);
   cursor: pointer;
   margin: auto;
-  transition: transform 0.24s cubic-bezier(0.18, 0.89, 0.4, 1.03),
-    box-shadow 0.2s ease-in;
+  transition: transform 0.24s cubic-bezier(0.18, 0.89, 0.4, 1.03), box-shadow 0.2s ease-in;
   text-decoration: none;
 
   @media screen and (max-width: 500px) {
