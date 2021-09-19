@@ -1,6 +1,6 @@
 import { LineWrapper, SVGArrow, SVGCircle } from "./Line.styles";
 
-const Line: React.FC = () => (
+const Line = () => (
   <LineWrapper>
     <SVGCircle height="10" width="10">
       <circle cx="5" cy="5" r="5" fill="#A7B4CF" />

@@ -1,4 +1,5 @@
 import matter from "gray-matter";
+
 import { WorkStruct } from "#root/interfaces/Work";
 
 const getWorks = (): WorkStruct[] => {
@@ -7,6 +8,7 @@ const getWorks = (): WorkStruct[] => {
     const values = keys.map(indexCtx);
     const data: WorkStruct[] = keys.map((key: any, index: number) => {
       const slug = key.match(/\/(.+)\/index/, "")[1];
+      // console.log({ key, slug });
       const value = values[index];
       const document = matter(value.default);
       const newDoc = {
@@ -22,6 +24,7 @@ const getWorks = (): WorkStruct[] => {
 
       return { document: newDoc, slug, images };
     });
+    // console.log(indexCtx, imagesCtx, data);
     return data;
   };
 
@@ -29,9 +32,7 @@ const getWorks = (): WorkStruct[] => {
     require.context("#content/works", true, /index.md$/),
     require.context("#content/works", true, /images.md$/)
   ).sort(
-    (a, b) =>
-      new Date(b.document.data.date).getTime() -
-      new Date(a.document.data.date).getTime()
+    (a, b) => new Date(b.document.data.date).getTime() - new Date(a.document.data.date).getTime()
   );
 
   return pages;

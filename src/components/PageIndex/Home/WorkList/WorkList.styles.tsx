@@ -4,11 +4,11 @@ export const WorkContainer = styled.div`
   margin-bottom: 100px;
 
   @media screen and (max-width: 880px) {
-    padding: 0 30px;
+    padding: 0 1.875rem;
   }
 
   @media screen and (max-width: 600px) {
-    padding: 0 20px;
+    padding: 0 1.25rem;
   }
 `;
 

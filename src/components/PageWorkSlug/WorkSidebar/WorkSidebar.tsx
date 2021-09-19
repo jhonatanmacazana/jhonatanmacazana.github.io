@@ -17,7 +17,7 @@ interface SBProps {
   website?: string;
 }
 
-const WorkSidebar: React.FC<SBProps> = ({ client, services, tech }) => (
+const WorkSidebar = ({ client, services, tech }: SBProps) => (
   <SidebarWrapper>
     {client && (
       <SectionWrapper>

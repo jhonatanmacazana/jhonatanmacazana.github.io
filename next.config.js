@@ -8,8 +8,12 @@ module.exports = withImages({
     });
 
     if (!options.isServer) {
-      config.node = {
-        fs: "empty",
+      config.resolve = {
+        ...config.resolve,
+        fallback: {
+          ...config.resolve.fallback,
+          fs: false,
+        },
       };
     }
 

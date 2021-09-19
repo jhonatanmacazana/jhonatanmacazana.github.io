@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 
-interface ParagraphProps extends React.FC {
+interface ParagraphProps {
   children: ReactNode | any;
 }
 
-const ParagraphRenderer: React.FC<ParagraphProps> = ({ children }) => {
+const ParagraphRenderer = ({ children }: ParagraphProps) => {
   if (
     children &&
     children[0] &&

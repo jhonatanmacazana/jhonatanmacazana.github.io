@@ -20,13 +20,13 @@ interface WCProps extends WorkStruct {
   index: number;
 }
 
-const WorkCard: React.FC<WCProps> = ({
+const WorkCard = ({
   index,
   slug,
   document: {
     data: { title, date, services, tech, featuredImg },
   },
-}) => {
+}: WCProps) => {
   return (
     <Link href="/work/[wid]" as={`/work/${slug}`}>
       <Card style={{ background: bgColors[index % 4] }}>

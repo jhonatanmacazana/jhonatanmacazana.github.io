@@ -1,9 +1,13 @@
-import { WorksProps } from "#root/interfaces/StaticProps";
+import WorkStruct from "#root/interfaces/Work";
 
-import WorkList from "./WorkList";
 import { HomeWrapper } from "./Home.styles";
+import WorkList from "./WorkList";
 
-const Home: React.FC<WorksProps> = ({ works }) => (
+interface HomeProps {
+  works: WorkStruct[];
+}
+
+const Home = ({ works }: HomeProps) => (
   <HomeWrapper>
     <WorkList works={works} />
   </HomeWrapper>

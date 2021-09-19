@@ -9,12 +9,12 @@ interface SEOProps extends NextSeoProps {
   locale?: string;
 }
 
-const SEO: React.FC<SEOProps> = ({
+const SEO = ({
   title,
   description,
   locale = "en",
   image = "/android-chrome-512x512.png",
-}) => {
+}: SEOProps) => {
   const siteURL = "https://jmacazana.com";
 
   return (

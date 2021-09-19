@@ -1,16 +1,17 @@
-import { WorksProps } from "#root/interfaces/StaticProps";
+import WorkStruct from "#root/interfaces/Work";
 
 import WorkCard from "./WorkCard";
 import { WorkTitle, WorkContainer } from "./WorkList.styles";
 
-const WorkList: React.FC<WorksProps> = ({ works }) => {
+interface WorkListProps {
+  works: WorkStruct[];
+}
+
+const WorkList = ({ works }: WorkListProps) => {
   return (
     <WorkContainer>
       <WorkTitle>Recent works</WorkTitle>
-      <div>
-        {works &&
-          works.map((p, i) => <WorkCard key={p.slug} index={i} {...p} />)}
-      </div>
+      <div>{works && works.map((p, i) => <WorkCard key={p.slug} index={i} {...p} />)}</div>
     </WorkContainer>
   );
 };
