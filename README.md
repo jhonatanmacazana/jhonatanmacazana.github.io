@@ -20,6 +20,8 @@ See it at: https://jmacazana.com
 - [x] CV.pdf
 - [x] Markdown for the blogs
 - [ ] Markdown or JSON for the main page
+- [ ] More contact information (local zone, telegram, ...)
+- [ ] Keep up with updated projects
 - [ ] Migrate to headless CMS ?
 
 ### Styling

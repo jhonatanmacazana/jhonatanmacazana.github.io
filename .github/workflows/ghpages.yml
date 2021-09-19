@@ -26,7 +26,9 @@ jobs:
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
 
       - name: Setup Yarn 🔧
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
       - name: Install dependencies 🔧
         run: yarn
