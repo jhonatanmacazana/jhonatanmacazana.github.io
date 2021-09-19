@@ -12,18 +12,24 @@ interface IndexProps {
   works: WorkStruct[];
 }
 
-const Index = ({ works }: IndexProps) => (
-  <main>
-    <SEO
-      title="Jhonatan Macazana | Portfolio"
-      description="Portfolio of Jhonatan Macazana, web developer, electrical engineer, and SRE. Check out my latest works."
-    />
-    <Header />
-    <Intro />
-    <Home works={works} />
-    <Footer />
-  </main>
-);
+const Index = ({ works }: IndexProps) => {
+  return (
+    <main>
+      <SEO
+        title="Jhonatan Macazana | Portfolio"
+        description="Portfolio of Jhonatan Macazana, web developer, electrical engineer, and SRE. Check out my latest works."
+      />
+
+      <Header />
+
+      <Intro />
+
+      <Home works={works} />
+
+      <Footer />
+    </main>
+  );
+};
 
 export default Index;
 

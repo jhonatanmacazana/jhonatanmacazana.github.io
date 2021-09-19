@@ -27,7 +27,7 @@ const WorkInfo = ({ data, data: { title, website }, content }: DocumentStruct) =
             </hgroup>
             <Container>
               <Inner>
-                {content ? <ReactMarkdown source={content} /> : "loading"}
+                {content ? <ReactMarkdown>{content}</ReactMarkdown> : "loading"}
                 {website && (
                   <WebsiteLink href={website} target="_blank" rel="noopener noreferrer">
                     Visit website

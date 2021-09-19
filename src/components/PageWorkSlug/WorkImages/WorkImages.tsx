@@ -1,4 +1,3 @@
-import React from "react";
 import ReactMarkdown from "react-markdown";
 
 import ImageRenderer from "./ImageRenderer";
@@ -13,9 +12,11 @@ const WorkImages = ({ content }: WorkImagesProps) => {
     <WorkImagesWrapper>
       <ImagesWrapper>
         <ReactMarkdown
-          source={content}
-          renderers={{ image: ImageRenderer, paragraph: ParagraphRenderer }}
-        />
+          // @ts-ignore
+          components={{ image: ImageRenderer, paragraph: ParagraphRenderer }}
+        >
+          {content}
+        </ReactMarkdown>
       </ImagesWrapper>
     </WorkImagesWrapper>
   );

@@ -21,13 +21,10 @@ interface WorkSlugParams extends ParsedUrlQuery {
 }
 
 const Post = ({ work }: WorkSlugProps) => {
-  // const currentIndex = works.findIndex(w => w.slug === wid);
-
   const {
     document: { data, content },
     images,
   } = work;
-  // const nextWork = works[currentIndex + 1] ? works[currentIndex + 1] : works[0];
 
   useEffect(() => {
     setTimeout(() => {
@@ -50,9 +47,6 @@ const Post = ({ work }: WorkSlugProps) => {
         <WorkImages content={images.content} />
       </WorkArticle>
 
-      {/* <NextWork nextSlug={nextWork.slug}>
-        <WorkInfo data={nextWork.document.data} content={nextWork.document.content} />
-      </NextWork> */}
       <Footer noBorder />
     </>
   );

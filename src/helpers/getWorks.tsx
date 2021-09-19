@@ -8,6 +8,7 @@ const getWorks = (): WorkStruct[] => {
     const values = keys.map(indexCtx);
     const data: WorkStruct[] = keys.map((key: any, index: number) => {
       const slug = key.match(/\/(.+)\/index/, "")[1];
+      // console.log({ key, slug });
       const value = values[index];
       const document = matter(value.default);
       const newDoc = {
@@ -23,6 +24,7 @@ const getWorks = (): WorkStruct[] => {
 
       return { document: newDoc, slug, images };
     });
+    // console.log(indexCtx, imagesCtx, data);
     return data;
   };
 
