@@ -1,6 +1,11 @@
 const withImages = require("next-images");
 
-module.exports = withImages({
+// @ts-check
+
+/**
+ * @type {import('next').NextConfig}
+ **/
+const nextConfig = withImages({
   webpack: (config, options) => {
     config.module.rules.push({
       test: /\.md$/,
@@ -20,3 +25,5 @@ module.exports = withImages({
     return config;
   },
 });
+
+module.exports = nextConfig;

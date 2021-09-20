@@ -95,7 +95,7 @@ export const HelloButton = styled.button`
   }
 `;
 
-export const Greeting = styled.p`
+export const Greeting = styled.h1`
   font-size: calc(var(--h1Size) * 1.2);
   font-weight: 700;
   letter-spacing: -0.04em;
