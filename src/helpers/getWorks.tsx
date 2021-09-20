@@ -1,41 +1,50 @@
 import matter from "gray-matter";
 
-import { WorkStruct } from "#root/interfaces/Work";
+import { DocumentStruct, ImageStruct, WorkStruct } from "#root/interfaces/Work";
 
 const getWorks = (): WorkStruct[] => {
-  const getPages = (indexCtx: any, imagesCtx: any) => {
+  const parseWorksFromFS = (
+    indexCtx: __WebpackModuleApi.RequireContext,
+    imagesCtx: __WebpackModuleApi.RequireContext
+  ) => {
     const keys = indexCtx.keys();
-    const values = keys.map(indexCtx);
-    const data: WorkStruct[] = keys.map((key: any, index: number) => {
-      const slug = key.match(/\/(.+)\/index/, "")[1];
-      // console.log({ key, slug });
-      const value = values[index];
+    const parsedKeys = keys.filter(k => k.startsWith("./"));
+
+    const data: WorkStruct[] = parsedKeys.map((key, index) => {
+      const slug = key.match(/\/(.+)\/index/)?.[1] || "";
+      const value = indexCtx(key);
       const document = matter(value.default);
-      const newDoc = {
+
+      const newDoc: DocumentStruct = {
         ...document,
+        orig: "",
         data: {
           ...document.data,
-          date: document.data.date.toString(),
+          date: String(document.data.date),
+          title: String(document.data.title),
+          year: String(document.data.year),
+          services: String(document.data.services),
+          tech: String(document.data.tech),
+          images: String(document.data.images),
         },
       };
-      const images = matter(imagesCtx.keys().map(imagesCtx)[index].default);
-      delete newDoc["orig"];
-      delete images["orig"];
+      const images = matter(imagesCtx(imagesCtx.keys()[index]).default);
+      const parsedImages: ImageStruct = {
+        ...images,
+        orig: "",
+      };
 
-      return { document: newDoc, slug, images };
+      return { work: newDoc, slug, images: parsedImages };
     });
-    // console.log(indexCtx, imagesCtx, data);
     return data;
   };
 
-  const pages = getPages(
+  const worksSorted = parseWorksFromFS(
     require.context("#content/works", true, /index.md$/),
     require.context("#content/works", true, /images.md$/)
-  ).sort(
-    (a, b) => new Date(b.document.data.date).getTime() - new Date(a.document.data.date).getTime()
-  );
+  ).sort((a, b) => new Date(b.work.data.date).getTime() - new Date(a.work.data.date).getTime());
 
-  return pages;
+  return worksSorted;
 };
 
 export const getWorkBySlug = (slug: string) => {

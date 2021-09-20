@@ -16,17 +16,17 @@ import {
 
 const bgColors = ["#4A2BAF", "#0F61C0", "#9E2B79", "#4146B5"];
 
-interface WCProps extends WorkStruct {
+interface WorkCardProps extends WorkStruct {
   index: number;
 }
 
 const WorkCard = ({
   index,
   slug,
-  document: {
+  work: {
     data: { title, date, services, tech, featuredImg },
   },
-}: WCProps) => {
+}: WorkCardProps) => {
   return (
     <Link href="/work/[wid]" as={`/work/${slug}`}>
       <Card style={{ background: bgColors[index % 4] }}>

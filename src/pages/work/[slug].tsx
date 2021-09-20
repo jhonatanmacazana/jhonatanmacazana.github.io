@@ -20,12 +20,7 @@ interface WorkSlugParams extends ParsedUrlQuery {
   slug: string;
 }
 
-const Post = ({ work }: WorkSlugProps) => {
-  const {
-    document: { data, content },
-    images,
-  } = work;
-
+const WorkSlug = ({ work: { images, work } }: WorkSlugProps) => {
   useEffect(() => {
     setTimeout(() => {
       document.body.classList.add("withAnim");
@@ -35,15 +30,15 @@ const Post = ({ work }: WorkSlugProps) => {
   return (
     <>
       <SEO
-        title={data.title}
-        description={removeMd(content.trim()).substring(0, 160)}
-        image={data.featuredImg}
+        title={work.data.title}
+        description={removeMd(work.content.trim()).substring(0, 160)}
+        image={work.data.featuredImg}
       />
 
       <Header />
 
       <WorkArticle>
-        <WorkInfo data={data} content={content} />
+        <WorkInfo data={work.data} content={work.content} />
         <WorkImages content={images.content} />
       </WorkArticle>
 
@@ -52,7 +47,7 @@ const Post = ({ work }: WorkSlugProps) => {
   );
 };
 
-export default Post;
+export default WorkSlug;
 
 export const getStaticProps: GetStaticProps<WorkSlugProps, WorkSlugParams> = async ({ params }) => {
   const work = getWorkBySlug(params!.slug);

@@ -2,7 +2,7 @@ import ReactMarkdown from "react-markdown";
 
 import Line from "#root/components/PageWorkSlug/Line";
 import Sidebar from "#root/components/PageWorkSlug/WorkSidebar";
-import { DocumentStruct } from "#root/interfaces/Work";
+import { DataStruct } from "#root/interfaces/Work";
 
 import {
   Container,
@@ -15,7 +15,12 @@ import {
   WorkWrapper,
 } from "./WorkInfo.styles";
 
-const WorkInfo = ({ data, data: { title, website }, content }: DocumentStruct) => {
+type WorkInfoProps = {
+  data: DataStruct;
+  content: string;
+};
+
+const WorkInfo = ({ data, data: { title, website }, content }: WorkInfoProps) => {
   return (
     <WorkWrapper>
       <WorkInfoWrapper>
