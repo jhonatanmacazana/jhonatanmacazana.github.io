@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import githubLogo from "#root/assets/socials/github.svg";
 import linkedinLogo from "#root/assets/socials/linkedin.svg";
+import telegramLogo from "#root/assets/socials/telegram.svg";
 
 import { Container, Nav } from "./Footer.styles";
 
@@ -31,6 +32,7 @@ const Footer = ({ noBorder }: FooterProps) => (
       <Nav>
         <ul>
           <li>
+            <Icon alt="jmacazana on telegram" href="https://t.me/jmacazana" image={telegramLogo} />
             <Icon
               alt="jmacazana on github"
               href="https://github.com/jhonatanmacazana"

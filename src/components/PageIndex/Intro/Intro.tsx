@@ -18,7 +18,7 @@ const Intro = () => (
           electrical engineer <br />
           and SRE
         </MyTitle>
-        <a target="_blank" rel="noopener noreferrer" href="mailto:jhonatan.macazana1@gmail.com">
+        <a target="_blank" rel="noopener noreferrer" href="https://t.me/jmacazana">
           <HelloButton>Say hello</HelloButton>
         </a>
       </ShortOne>

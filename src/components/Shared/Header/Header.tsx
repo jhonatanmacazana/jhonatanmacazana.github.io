@@ -11,15 +11,16 @@ const Header = () => (
         </a>
       </Link>
       <Nav>
-        <Field href="/assets/CV_Eng_Macazana.pdf" target="_blank" rel="noopener noreferrer">
-          CV
+        <Field href="/assets/Resume.pdf" target="_blank" rel="noopener noreferrer">
+          Resume
         </Field>
+
         <ContactLinkField
-          href="mailto:jhonatanmacazana1@gmail.com"
+          href="mailto:contact@jmacazana.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Contact
+          E-Mail
         </ContactLinkField>
       </Nav>
     </HeaderInner>
