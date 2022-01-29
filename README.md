@@ -27,6 +27,7 @@ See it at: https://jmacazana.com
 ### Styling
 
 - [x] Migrate from modular css to `styled-components`
+- [x] Migrate `styled-components` to `chakra-ui`
 - [ ] Dark theme support
 
 ### Language
