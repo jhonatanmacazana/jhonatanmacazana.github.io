@@ -1,0 +1,37 @@
+{
+  "Quick Import": {
+    "prefix": "impp",
+    "body": ["import $1 from './$1';"]
+  },
+  "React Stateless Component Boilerplate": {
+    "prefix": "boilerstateless",
+    "body": [
+      "import { Box } from \"@chakra-ui/react\";",
+      "",
+      "type $1Props = {};",
+      "",
+      "const $1 = ({}: $1Props) => {",
+      "  return <Box>$1</Box>;",
+      "};",
+      "",
+      "export default $1;",
+      ""
+    ]
+  },
+  "React Stateless Index Boilerplate": {
+    "prefix": "indexall",
+    "body": ["export { default } from \"./$1\";", "export * from \"./$1\";"]
+  },
+  "React Index Default": {
+    "prefix": "indexdefault",
+    "body": ["export { default } from \"./$1\";"]
+  },
+  "React Index Named": {
+    "prefix": "indexnamed",
+    "body": ["export * from \"./$1\";"]
+  },
+  "Typescript React Index Boilerplate": {
+    "prefix": "boilerindex",
+    "body": ["export { default } from \"./$1\";", "export * from \"./$1\";", ""]
+  }
+}

@@ -27,7 +27,8 @@
     "strictBindCallApply": true,
     //  "strictPropertyInitialization": true,
     "target": "es5",
-    "strict": true
+    "strict": true,
+    "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

@@ -1,6 +1,6 @@
 import matter from "gray-matter";
 
-import { DocumentStruct, ImageStruct, WorkStruct } from "#root/interfaces/Work";
+import { DocumentStruct, ImageStruct, WorkStruct } from "#root/modules/works/types";
 
 const getWorks = (): WorkStruct[] => {
   const parseWorksFromFS = (
