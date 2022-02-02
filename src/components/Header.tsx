@@ -2,22 +2,30 @@ import { Flex, HStack, Img } from "@chakra-ui/react";
 
 import Link from "#root/components/Link";
 
-const logoImageSrc = "/android-chrome-512x512.png";
-const logoImageAlt = "logo";
-const navbarLinks = [
-  {
-    label: "Resume",
-    href: "/assets/Resume.pdf",
-    isExternal: true,
-  },
-  {
-    label: "E-Mail",
-    href: "mailto:contact@jmacazana.com",
-    isExternal: true,
-  },
+const defaultLogoImageSrc = "/android-chrome-512x512.png";
+const defaultLogoImageAlt = "logo";
+const defaultNavbarLinks = [
+  { label: "Resume", href: "/assets/Resume.pdf", isExternal: true },
+  { label: "E-Mail", href: "mailto:contact@jmacazana.com", isExternal: true },
 ];
 
-const Header = () => {
+type LinkElement = {
+  label: string;
+  href: string;
+  isExternal: boolean;
+};
+
+type Props = {
+  logoImageSrc?: string;
+  logoImageAlt?: string;
+  links?: LinkElement[];
+};
+
+const Header = ({
+  links = defaultNavbarLinks,
+  logoImageAlt = defaultLogoImageAlt,
+  logoImageSrc = defaultLogoImageSrc,
+}: Props) => {
   return (
     <Flex
       as="header"
@@ -37,7 +45,7 @@ const Header = () => {
       </Link>
 
       <HStack as="nav" marginRight="1.25rem" spacing={4}>
-        {navbarLinks.map(nl => (
+        {links.map(nl => (
           <Link
             chakraLink={{
               _hover: { color: "#282c35" },
