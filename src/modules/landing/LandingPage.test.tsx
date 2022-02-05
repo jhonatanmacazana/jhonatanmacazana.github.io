@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
 
-import Home from "#root/pages/index";
+import LandingPage from "./LandingPage";
 
-describe("Home", () => {
+describe("LandingPage", () => {
   it("renders the name on the heading", () => {
-    render(<Home works={[]} />);
+    render(<LandingPage works={[]} />);
 
     const heading = screen.getByRole("heading", {
       name: /Jhonatan/i,
