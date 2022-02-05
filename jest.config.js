@@ -12,6 +12,7 @@ const customJestConfig = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   // Handle module aliases
   moduleNameMapper: {
+    "^#content/(.*)$": "<rootDir>/content/$1",
     "^#root/(.*)$": "<rootDir>/src/$1",
   },
   testEnvironment: "jest-environment-jsdom",
