@@ -3,28 +3,47 @@ import { FaGithub, FaLinkedin, FaTelegram } from "react-icons/fa";
 
 import Link from "#root/components/Link";
 
-type FooterProps = {
-  noBorder?: boolean;
+const defaultSocials = [
+  {
+    alt: "jmacazana on telegram",
+    icon: <FaTelegram />,
+    isExternal: true,
+    href: "https://t.me/jmacazana",
+  },
+  {
+    alt: "jmacazana on github",
+    icon: <FaGithub />,
+    isExternal: true,
+    href: "https://github.com/jhonatanmacazana",
+  },
+  {
+    alt: "jmacazana on linkedin",
+    icon: <FaLinkedin />,
+    isExternal: true,
+    href: "https://linkedin.com/in/jhonatanmacazana",
+  },
+];
+
+type Social = {
+  alt: string;
+  icon: JSX.Element;
+  isExternal?: boolean;
+  href: string;
 };
 
-const Footer = ({ noBorder }: FooterProps) => {
-  const socials = [
-    {
-      alt: "jmacazana on telegram",
-      icon: <FaTelegram />,
-      href: "https://t.me/jmacazana",
-    },
-    {
-      alt: "jmacazana on github",
-      icon: <FaGithub />,
-      href: "https://github.com/jhonatanmacazana",
-    },
-    {
-      alt: "jmacazana on linkedin",
-      icon: <FaLinkedin />,
-      href: "https://linkedin.com/in/jhonatanmacazana",
-    },
-  ];
+type FooterProps = {
+  noBorder?: boolean;
+  logoImageAlt?: string;
+  logoImageSrc?: string;
+  socials?: Social[];
+};
+
+const Footer = ({
+  logoImageAlt = "jmacazana logo",
+  logoImageSrc = "/android-chrome-512x512.png",
+  noBorder,
+  socials = defaultSocials,
+}: FooterProps) => {
   return (
     <Flex
       as="footer"
@@ -40,12 +59,12 @@ const Footer = ({ noBorder }: FooterProps) => {
       borderTop={noBorder ? 0 : "1px solid rgba(62, 62, 225, 0.12)"}
     >
       <Link href="/">
-        <Image src="/android-chrome-512x512.png" width="4.5rem" alt="jmacazana logo" />
+        <Image src={logoImageSrc} width="4.5rem" alt={logoImageAlt} />
       </Link>
 
       <HStack spacing={8}>
         {socials.map(social => (
-          <Link href={social.href} key={social.alt} chakraLink={{ isExternal: true }}>
+          <Link href={social.href} key={social.alt} chakraLink={{ isExternal: social.isExternal }}>
             <IconButton
               alt={social.alt}
               aria-label={social.alt}
