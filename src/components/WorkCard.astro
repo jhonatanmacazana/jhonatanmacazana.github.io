@@ -1,0 +1,55 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon";
+import { getTechIcon } from "@/lib/icons";
+
+type Props = {
+  work: CollectionEntry<"works">;
+  index: number;
+};
+
+const { work, index } = Astro.props;
+
+const bgColors = ["#4A2BAF", "#0F61C0", "#9E2B79", "#4146B5"];
+const bgColor = bgColors[index % bgColors.length];
+---
+
+<div class="card transition hover:scale-105">
+  <div class="flex flex-col justify-between p-14">
+    <div class="">
+      <p class="text-white/80">{work.data.date.getFullYear()}</p>
+      <h3 class="text-4xl font-semibold">{work.data.title}</h3>
+    </div>
+
+    <ul>
+      {work.data.services.split(",").map((tech) => <li class="text-white/80">{tech.trim()}</li>)}
+    </ul>
+
+    <ul class="flex gap-3">
+      {
+        work.data.tech.map((tech) => (
+          <li class="h-8 w-8 overflow-hidden" title={tech}>
+            <Icon name={getTechIcon(tech)} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div>
+    <img alt={work.data.title} src={work.data.featuredImg} />
+  </div>
+</div>
+
+<style define:vars={{ bgColor }}>
+  .card {
+    background-color: var(--bgColor);
+    color: white;
+    border-radius: 0.5rem;
+
+    display: grid;
+    grid-template-columns: 4fr 5fr;
+
+    height: 440px;
+  }
+</style>

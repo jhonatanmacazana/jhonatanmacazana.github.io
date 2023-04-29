@@ -1,0 +1,91 @@
+---
+import { getCollection, getEntryBySlug } from "astro:content";
+
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import WorkCard from "@/components/WorkCard.astro";
+import Layout from "@/layouts/Layout.astro";
+
+const profileInfo = await getEntryBySlug("profile", "landing");
+const { Content: ProfileContent } = await profileInfo.render();
+
+const works = await getCollection("works");
+const sortedWorksByDate = works.sort((a, b) => {
+  const aDate = a.data.date.getTime();
+  const bDate = b.data.date.getTime();
+
+  return bDate - aDate;
+});
+---
+
+<Layout
+  title="Jhonatan Macazana | Portfolio"
+  description="Portfolio of Jhonatan Macazana, web developer, electrical engineer, and SRE. Check out my latest works."
+>
+  <Header />
+
+  <main class="mx-auto max-w-3xl px-4 sm:p-0">
+    <div class="flex flex-col gap-10 sm:flex-row">
+      <div class="flex flex-col gap-6">
+        <h1 class="text-3xl font-bold sm:text-5xl">{profileInfo.data.title}</h1>
+        <p class="text-2xl font-medium text-gray-500">{profileInfo.data.subtitle}</p>
+        <a
+          class="flex w-1/2 flex-grow-0 items-center justify-center rounded-lg border border-blue-500 py-2 text-xl font-medium text-blue-500"
+          href="https://t.me/jmacazana"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Say hello
+        </a>
+      </div>
+
+      <div class="md-body">
+        <ProfileContent />
+      </div>
+    </div>
+  </main>
+
+  <hr class="my-10" />
+
+  <section class="mx-auto flex max-w-3xl flex-col gap-8 px-4 sm:p-0">
+    <h2 class="text-3xl font-bold">Recent Works</h2>
+
+    <ul class="flex flex-col gap-4">
+      {
+        sortedWorksByDate.map((work, idx) => (
+          <li>
+            <a href={`${import.meta.env.BASE_URL}/works/${work.slug}`}>
+              <WorkCard index={idx} work={work} />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <hr class="my-10" />
+
+  <Footer />
+</Layout>
+
+<style is:global>
+  .md-body a {
+    @apply text-blue-500;
+  }
+  .md-body ul {
+    list-style-type: disc;
+    padding-top: 0.5rem;
+    padding-left: 1.5rem;
+  }
+</style>
+
+<style>
+  [astro-icon] {
+    width: 32px;
+    @apply text-gray-500;
+
+    & :hover {
+      @apply text-gray-800;
+    }
+  }
+</style>
