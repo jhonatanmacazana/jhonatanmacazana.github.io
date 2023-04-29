@@ -54,7 +54,7 @@ const sortedWorksByDate = works.sort((a, b) => {
       {
         sortedWorksByDate.map((work, idx) => (
           <li>
-            <a href={`${import.meta.env.BASE_URL}/works/${work.slug}`}>
+            <a href={`/works/${work.slug}`}>
               <WorkCard index={idx} work={work} />
             </a>
           </li>

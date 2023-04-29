@@ -5,6 +5,5 @@ import { defineConfig } from "astro/config";
 
 export default defineConfig({
   site: "https://jmacazana.com",
-  base: "/web",
   integrations: [tailwind(), image(), sitemap()],
 });

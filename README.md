@@ -19,15 +19,16 @@ See it at: https://jmacazana.com
 
 - [x] CV.pdf
 - [x] Markdown for the blogs
-- [ ] Markdown or JSON for the main page
+- [x] Markdown for the main page
 - [ ] More contact information (local zone, telegram, ...)
 - [ ] Keep up with updated projects
-- [ ] Migrate to headless CMS ?
+- [x] Migrate to Astro for better markdown support
 
 ### Styling
 
 - [x] Migrate from modular css to `styled-components`
 - [x] Migrate `styled-components` to `chakra-ui`
+- [x] Migrate `chakra-ui` to `tailwindcss`
 - [ ] Dark theme support
 
 ### Language
