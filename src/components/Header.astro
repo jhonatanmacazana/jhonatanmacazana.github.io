@@ -1,0 +1,16 @@
+---
+import { Image } from "@astrojs/image/components";
+
+import logoIcon from "@/assets/logo.png";
+---
+
+<header class="top-0 flex items-center justify-between sm:sticky sm:px-6 sm:pt-6">
+  <a href="/">
+    <Image alt="Logo" class="p-t-1" src={logoIcon} width={128} height={128} />
+  </a>
+
+  <nav class="flex gap-6">
+    <a class="text-gray-500 hover:text-black" href="#">Resume</a>
+    <a class="text-gray-500 hover:text-black" href="#">Email</a>
+  </nav>
+</header>

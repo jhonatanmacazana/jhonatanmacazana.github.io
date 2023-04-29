@@ -1,0 +1,50 @@
+---
+import { Image } from "@astrojs/image/components";
+import { Icon } from "astro-icon";
+
+import logoIcon from "@/assets/logo.png";
+---
+
+<footer class="grid grid-cols-3 items-center justify-between px-4 pb-2 sm:px-10 sm:pb-6">
+  <a href="/">
+    <Image alt="Logo" class="p-t-1" src={logoIcon} width={72} height={72} />
+  </a>
+
+  <p class="mx-auto hidden text-gray-500 sm:block">Made with ❤️ by Jhonatan Macazana</p>
+  <p class="block sm:hidden"></p>
+
+  <!-- List for social network -->
+  <ul class="ml-auto flex gap-4 text-gray-500">
+    <li>
+      <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/jmacazana2">
+        <Icon name="mdi:twitter" /></a
+      >
+    </li>
+    <li>
+      <a target="_blank" rel="noopener noreferrer" href="https://t.me/jmacazana">
+        <Icon name="mdi:telegram" /></a
+      >
+    </li>
+    <li>
+      <a target="_blank" rel="noopener noreferrer" href="https://github.com/jhonatanmacazana">
+        <Icon name="mdi:github" /></a
+      >
+    </li>
+    <li>
+      <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/jhonatanmacazana">
+        <Icon name="mdi:linkedin" /></a
+      >
+    </li>
+  </ul>
+</footer>
+
+<style>
+  [astro-icon] {
+    width: 32px;
+    @apply text-gray-500;
+
+    & :hover {
+      @apply text-gray-800;
+    }
+  }
+</style>
