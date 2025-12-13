@@ -1,6 +1,6 @@
 ---
-import { Image } from "@astrojs/image/components";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 
 import logoIcon from "@/assets/logo.png";
 ---
@@ -39,6 +39,8 @@ import logoIcon from "@/assets/logo.png";
 </footer>
 
 <style>
+  @reference "../styles/global.css";
+
   [astro-icon] {
     width: 32px;
     @apply text-gray-500;

@@ -1,7 +1,7 @@
 ---
 import type { InferGetStaticPropsType } from "astro";
+import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
-import { Icon } from "astro-icon";
 
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
@@ -108,6 +108,8 @@ const { Content: WorkContent } = await entry.render();
 </Layout>
 
 <style is:global>
+  @reference "../../styles/global.css";
+
   .md-work-body {
     @apply text-gray-700;
     font-size: 20px;
@@ -125,6 +127,8 @@ const { Content: WorkContent } = await entry.render();
 </style>
 
 <style>
+  @reference "../../styles/global.css";
+
   .md-work-website:hover > svg {
     @apply translate-x-1 scale-105 transition;
   }

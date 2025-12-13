@@ -1,12 +1,12 @@
 ---
-import { getCollection, getEntryBySlug } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import WorkCard from "@/components/WorkCard.astro";
 import Layout from "@/layouts/Layout.astro";
 
-const profileInfo = await getEntryBySlug("profile", "landing");
+const profileInfo = await getEntry("profile", "landing")!;
 const { Content: ProfileContent } = await profileInfo.render();
 
 const works = await getCollection("works");
@@ -69,6 +69,8 @@ const sortedWorksByDate = works.sort((a, b) => {
 </Layout>
 
 <style is:global>
+  @reference "../styles/global.css";
+
   .md-body a {
     @apply text-blue-500;
   }
@@ -80,6 +82,8 @@ const sortedWorksByDate = works.sort((a, b) => {
 </style>
 
 <style>
+  @reference "../styles/global.css";
+
   [astro-icon] {
     width: 32px;
     @apply text-gray-500;

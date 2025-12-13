@@ -1,0 +1,7 @@
+{
+  "tailwindCSS.experimental.configFile": "src/styles/global.css",
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
