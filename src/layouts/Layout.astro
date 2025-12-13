@@ -1,8 +1,9 @@
 ---
+import "../styles/global.css";
+
 import { SEO } from "astro-seo";
 import { Tooltips } from "astro-tooltips";
-
-import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 
 export type Props = {
   title: string;
@@ -54,6 +55,8 @@ const { title, description } = Astro.props;
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <Tooltips placement="top" />
+
+    <ClientRouter />
   </head>
 
   <body>
