@@ -87,7 +87,7 @@ const { Content: WorkContent } = await entry.render();
     </div>
   </main>
 
-  <div class="my-10 min-h-[600px] bg-gray-200 py-8">
+  <div class="my-10 min-h-150 bg-gray-200 py-8">
     <div class="mx-auto flex max-w-7xl flex-wrap justify-between gap-10">
       {
         entry.data.images.map((image) => (
@@ -97,7 +97,7 @@ const { Content: WorkContent } = await entry.render();
             rel="noopener noreferrer"
             href={image.src}
           >
-            <img class="max-h-[350px] opacity-90" src={image.src} alt={image.alt} />
+            <img class="max-h-87.5 opacity-90" src={image.src} alt={image.alt} />
           </a>
         ))
       }

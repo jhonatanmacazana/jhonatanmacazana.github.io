@@ -24,7 +24,7 @@ const worksCollection = defineCollection({
         alt: z.string(),
         width: z.number().optional(),
         height: z.number().optional(),
-      })
+      }),
     ),
   }),
 });

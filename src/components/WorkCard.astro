@@ -1,6 +1,7 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
+
 import { getTechIcon } from "@/lib/icons";
 
 type Props = {
@@ -22,12 +23,12 @@ const bgColor = bgColors[index % bgColors.length];
     </div>
 
     <ul>
-      {work.data.services.split(",").map(tech => <li class="text-white/80">{tech.trim()}</li>)}
+      {work.data.services.split(",").map((tech) => <li class="text-white/80">{tech.trim()}</li>)}
     </ul>
 
     <ul class="flex gap-3">
       {
-        work.data.tech.map(tech => (
+        work.data.tech.map((tech) => (
           <li class="h-8 w-8 overflow-hidden" title={tech}>
             <Icon name={getTechIcon(tech)} />
           </li>
