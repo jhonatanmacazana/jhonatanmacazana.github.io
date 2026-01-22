@@ -29,7 +29,17 @@ const worksCollection = defineCollection({
   }),
 });
 
+const toolsCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    website: z.string(),
+    tagline: z.string().optional(),
+    tech: techParser.optional(),
+  }),
+});
+
 export const collections = {
   profile: profileCollection,
   works: worksCollection,
+  tools: toolsCollection,
 };

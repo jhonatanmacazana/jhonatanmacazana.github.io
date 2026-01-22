@@ -3,6 +3,7 @@ import { getCollection, getEntry } from "astro:content";
 
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
+import ToolCard from "@/components/ToolCard.astro";
 import WorkCard from "@/components/WorkCard.astro";
 import Layout from "@/layouts/Layout.astro";
 
@@ -16,6 +17,9 @@ const sortedWorksByDate = works.sort((a, b) => {
 
   return bDate - aDate;
 });
+
+const tools = await getCollection("tools");
+const sortedTools = [...tools].sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 
 <Layout
@@ -56,6 +60,24 @@ const sortedWorksByDate = works.sort((a, b) => {
           <li>
             <a href={`/works/${work.slug}`}>
               <WorkCard index={idx} work={work} />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <hr class="my-10" />
+
+  <section class="mx-auto flex max-w-3xl flex-col gap-8 px-4 sm:p-0">
+    <h2 class="text-3xl font-bold">Tools</h2>
+
+    <ul class="flex flex-col gap-4">
+      {
+        sortedTools.map((tool, idx) => (
+          <li>
+            <a href={`/tools/${tool.slug}`}>
+              <ToolCard index={idx} tool={tool} />
             </a>
           </li>
         ))

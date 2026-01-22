@@ -1,0 +1,61 @@
+---
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
+
+import { getTechIcon } from "@/lib/icons";
+
+type Props = {
+  tool: CollectionEntry<"tools">;
+  index: number;
+};
+
+const { tool, index } = Astro.props;
+
+const bgColors = ["#0D9488", "#059669", "#0F766E"];
+const bgColor = bgColors[index % bgColors.length];
+---
+
+<div class="card transition hover:scale-[1.02]">
+  <div class="flex flex-col justify-between p-8">
+    <div>
+      <h3 class="text-2xl font-semibold">{tool.data.title}</h3>
+      {tool.data.tagline ? <p class="mt-2 text-white/80">{tool.data.tagline}</p> : null}
+    </div>
+
+    {
+      tool.data.tech && tool.data.tech.length > 0 ? (
+        <ul class="mt-4 flex gap-3">
+          {tool.data.tech.map((t) => (
+            <li class="h-6 w-6 overflow-hidden opacity-80" title={t}>
+              <Icon name={getTechIcon(t)} />
+            </li>
+          ))}
+        </ul>
+      ) : null
+    }
+
+    <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-white/90">
+      View details
+      <svg
+        class="inline-block h-4 w-4"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          d="M13.3 17.275q-.3-.3-.288-.725t.313-.725L16.15 13H5q-.425 0-.713-.288T4 12q0-.425.288-.713T5 11h11.15L13.3 8.15q-.3-.3-.3-.713t.3-.712q.3-.3.713-.3t.712.3L19.3 11.3q.15.15.213.325t.062.375q0 .2-.063.375t-.212.325l-4.6 4.6q-.275.275-.687.275t-.713-.3Z"
+        ></path>
+      </svg>
+    </span>
+  </div>
+</div>
+
+<style define:vars={{ bgColor }}>
+  .card {
+    background-color: var(--bgColor);
+    color: white;
+    border-radius: 0.5rem;
+    min-height: 180px;
+  }
+</style>
